@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIỀN NAM - Vẻ Đẹp Phương Nam</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #faf9f4;
+    color: #25433d;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(15, 54, 48, .75);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-left: 25px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #e9c58d;
+}
+
+.hero {
+    height: 100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=2000&q=90');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    padding: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-content p {
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 90px);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.hero h3 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    color: white;
+    border: 1px solid white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .4s;
+}
+
+.btn:hover {
+    background: white;
+    color: #25433d;
+}
+
+section {
+    padding: 100px 8%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.heading span {
+    color: #b18a55;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.intro-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin: 20px 0;
+}
+
+.intro-text p {
+    color: #74817b;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 18px;
+}
+
+.destinations {
+    background: #edf2ec;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,.06);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content span {
+    color: #b18a55;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin: 12px 0;
+}
+
+.card-content p {
+    color: #77827e;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.nature {
+    background:
+    linear-gradient(rgba(15,50,43,.55),rgba(15,50,43,.55)),
+    url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 120px 10%;
+    text-align: center;
+    color: white;
+}
+
+.nature h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    font-weight: 400;
+}
+
+.nature p {
+    margin-top: 25px;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 230px 230px;
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery-grid img:hover {
+    filter: brightness(.7);
+}
+
+.gallery-grid img:first-child {
+    grid-row: span 2;
+}
+
+footer {
+    background: #163c35;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #c6d4cc;
+    font-size: 12px;
+    line-height: 2;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 850px) {
+    header {
+        padding: 18px 4%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 9px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px 180px;
+    }
+
+    .gallery-grid img:first-child {
+        grid-row: auto;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+
+    .heading h2 {
+        font-size: 32px;
+    }
+
+    .nature h2 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">PHƯƠNG NAM.</div>
+    <nav>
+        <a href="#home">TRANG CHỦ</a>
+        <a href="#about">GIỚI THIỆU</a>
+        <a href="#places">ĐỊA ĐIỂM</a>
+        <a href="#gallery">THƯ VIỆN ẢNH</a>
+    </nav>
+</header>
+
+<!-- TRANG CHỦ -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <p>WELCOME TO SOUTHERN VIETNAM</p>
+        <h1>Miền Nam Thương Nhớ</h1>
+        <h3>Miền đất của nắng vàng, sông xanh và những miền quê yên bình</h3>
+        <a href="#places" class="btn">KHÁM PHÁ NGAY</a>
+    </div>
+</div>
+
+<!-- GIỚI THIỆU -->
+<section id="about">
+    <div class="intro">
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=85" alt="Phong cảnh miền Nam">
+
+        <div class="intro-text">
+            <span style="color:#b18a55;letter-spacing:4px">VẺ ĐẸP PHƯƠNG NAM</span>
+
+            <h2>Miền Nam – Bản Tình Ca Của Thiên Nhiên</h2>
+
+            <p>
+                Miền Nam Việt Nam mang trong mình vẻ đẹp bình dị,
+                phóng khoáng và đầy sức sống. Nơi đây có những dòng
+                sông hiền hòa, những cánh đồng xanh ngát, những khu
+                rừng ngập mặn và những bãi biển tuyệt đẹp.
+            </p>
+
+            <p>
+                Từ nét hiện đại của Thành phố Hồ Chí Minh đến sự
+                bình yên của miền Tây sông nước, từ những hòn đảo
+                xanh ngọc đến những vùng quê trù phú, mỗi nơi đều
+                mang một câu chuyện riêng đáng để khám phá.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ĐỊA ĐIỂM -->
+<section class="destinations" id="places">
+
+    <div class="heading">
+        <span>EXPLORE SOUTHERN VIETNAM</span>
+        <h2>Những Điểm Đến Không Thể Bỏ Lỡ</h2>
+    </div>
+
+    <div class="destination-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85" alt="Đà Lạt">
+            <div class="card-content">
+                <span>LÂM ĐỒNG</span>
+                <h3>Đà Lạt</h3>
+                <p>Thành phố ngàn hoa với rừng thông xanh, hồ nước thơ mộng và khí hậu mát lành.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=85" alt="Miền Tây">
+            <div class="card-content">
+                <span>ĐỒNG BẰNG SÔNG CỬU LONG</span>
+                <h3>Miền Tây Sông Nước</h3>
+                <p>Những dòng sông uốn lượn, chợ nổi nhộn nhịp và vườn trái cây trĩu quả.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=85" alt="Phú Quốc">
+            <div class="card-content">
+                <span>AN GIANG</span>
+                <h3>Đảo Phú Quốc</h3>
+                <p>Đảo ngọc nổi tiếng với biển xanh, cát trắng và những hoàng hôn tuyệt đẹp.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=85" alt="Côn Đảo">
+            <div class="card-content">
+                <span>TP. HỒ CHÍ MINH</span>
+                <h3>Côn Đảo</h3>
+                <p>Vùng biển hoang sơ, thiên nhiên trong lành và nhiều dấu ấn lịch sử.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=85" alt="Tây Nguyên">
+            <div class="card-content">
+                <span>ĐÔNG NAM BỘ</span>
+                <h3>Núi Bà Đen</h3>
+                <p>Ngọn núi nổi bật giữa vùng đất Tây Ninh, nơi có phong cảnh núi non hùng vĩ.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=85" alt="Thiên nhiên">
+            <div class="card-content">
+                <span>ĐỒNG NAI</span>
+                <h3>Vườn Quốc Gia Cát Tiên</h3>
+                <p>Không gian rừng xanh rộng lớn, hệ sinh thái đa dạng và thiên nhiên hoang dã.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=800&q=85" alt="Vũng Tàu">
+            <div class="card-content">
+                <span>TP. HỒ CHÍ MINH</span>
+                <h3>Vũng Tàu</h3>
+                <p>Thành phố biển với bờ cát dài, hải đăng cổ và những cung đường ven biển tuyệt đẹp.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=85" alt="Cần Thơ">
+            <div class="card-content">
+                <span>CẦN THƠ</span>
+                <h3>Bến Ninh Kiều</h3>
+                <p>Điểm đến thơ mộng bên dòng sông Hậu, mang đậm nét văn hóa miền Tây.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=85" alt="Rừng tràm">
+            <div class="card-content">
+                <span>AN GIANG</span>
+                <h3>Rừng Tràm Trà Sư</h3>
+                <p>Khung cảnh rừng tràm xanh mướt, mặt nước phủ bèo và hệ sinh thái đặc sắc.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CÂU CHUYỆN THIÊN NHIÊN -->
+<div class="nature">
+    <h2>Vẻ Đẹp Bình Dị – Tâm Hồn Phương Nam</h2>
+    <p>
+        Có những nơi không cần quá rực rỡ vẫn khiến lòng người lưu luyến.
+        <br>
+        Miền Nam là nơi thiên nhiên, con người và văn hóa hòa quyện
+        tạo nên một bức tranh đầy màu sắc.
+    </p>
+</div>
+
+<!-- THƯ VIỆN ẢNH -->
+<section id="gallery">
+    <div class="heading">
+        <span>BEAUTY OF SOUTHERN VIETNAM</span>
+        <h2>Những Khoảnh Khắc Đáng Nhớ</h2>
+    </div>
+
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=85" alt="Sông nước">
+        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=85" alt="Biển xanh">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=85" alt="Thiên nhiên">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=85" alt="Rừng xanh">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=700&q=85" alt="Phong cảnh">
+    </div>
+</section>
+
+<!-- KẾT THÚC -->
+<footer>
+    <h2>MIỀN NAM THƯƠNG NHỚ</h2>
+    <p>Khám phá vẻ đẹp thiên nhiên, văn hóa và con người phương Nam.</p>
+    <p>© 2026 - WEBSITE DU LỊCH MIỀN NAM VIỆT NAM</p>
+</footer>
+
+</body>
+</html>
